@@ -2,17 +2,26 @@
 
 namespace TestRepo
 {
-    class Program
+  public delegate void Function();
+
+  class Program
+  {
+    public static float difficultyModifier = 1f;
+
+    public static void Main(string[] args)
     {
-        public static float difficultyModifier = 1f;
+      float somemath = 1f; // Pretend some math happened 
 
-        public static void Main(string[] args)
-        {
-            float somemath = 1f; // Pretend some math happened 
+      float result = somemath * Program.difficultyModifier;
 
-            float result = somemath * Program.difficultyModifier;
-
-            Console.WriteLine("Hello World! " + result);
-        }
+      Console.WriteLine("Hello World! " + result);
+      FooBar(() => {Console.WriteLine("Hi");});
     }
+
+    public static void FooBar(Function func)
+    {
+        Console.WriteLine("Calling Function now");
+         func();
+    }
+  }
 }

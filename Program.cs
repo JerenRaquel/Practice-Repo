@@ -4,9 +4,15 @@ namespace TestRepo
 {
     class Program
     {
-        static void Main(string[] args)
+        public static float difficultyModifier = 1f;
+
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            float somemath = 1f; // Pretend some math happened 
+
+            float result = somemath * Program.difficultyModifier;
+
+            Console.WriteLine("Hello World! " + result);
         }
     }
 }
